@@ -1,0 +1,25 @@
+{
+  "descricao": "Exemplo do enunciado com os 10 casos de aceitação.",
+  "papeis": {"bia": "coordenador", "davi": "tecnico", "edu": "estagiario", "gil": "seguranca"},
+  "herda": [["coordenador", "tecnico"], ["tecnico", "estagiario"]],
+  "permissoes": [["estagiario", "ler", "catalogo"], ["tecnico", "editar", "catalogo"],
+                 ["tecnico", "ler", "reserva_tecnica"], ["coordenador", "aprovar", "emprestimo"],
+                 ["seguranca", "ler", "reserva_tecnica"]],
+  "delegacoes": [["bia", "davi", "aprovar", "emprestimo", 9, 12]],
+  "pedidos": {"p7": "davi", "p8": "edu"},
+  "horarios": {"reserva_tecnica": [8, 18]},
+  "excecoes_de_horario": ["seguranca"],
+  "consultas": [
+    {"pessoa": "edu",  "acao": "ler",     "recurso": "catalogo",        "hora": 10, "esperado": "permitido"},
+    {"pessoa": "edu",  "acao": "editar",  "recurso": "catalogo",        "hora": 10, "esperado": "negado"},
+    {"pessoa": "bia",  "acao": "editar",  "recurso": "catalogo",        "hora": 10, "esperado": "permitido"},
+    {"pessoa": "davi", "acao": "aprovar", "recurso": "p8",              "hora": 10, "esperado": "permitido"},
+    {"pessoa": "davi", "acao": "aprovar", "recurso": "p8",              "hora": 14, "esperado": "negado"},
+    {"pessoa": "davi", "acao": "aprovar", "recurso": "p7",              "hora": 10, "esperado": "negado"},
+    {"pessoa": "bia",  "acao": "aprovar", "recurso": "p7",              "hora": 10, "esperado": "permitido"},
+    {"pessoa": "bia",  "acao": "ler",     "recurso": "reserva técnica", "hora": 20, "esperado": "negado"},
+    {"pessoa": "gil",  "acao": "ler",     "recurso": "reserva técnica", "hora": 20, "esperado": "permitido"},
+    {"pessoa": "edu",  "acao": "ler",     "recurso": "reserva técnica", "hora": 10, "esperado": "negado"}
+  ],
+  "esperado": {"consistente": true, "modelos": 1}
+}

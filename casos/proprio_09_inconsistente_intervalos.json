@@ -1,0 +1,13 @@
+{
+  "descricao": "Entrada inconsistente: delegação com intervalo vazio [14, 10) e horário de funcionamento vazio [18, 8).",
+  "papeis": {"bia": "coordenador", "davi": "tecnico"},
+  "permissoes": [["coordenador", "aprovar", "emprestimo"], ["tecnico", "ler", "reserva_tecnica"]],
+  "delegacoes": [["bia", "davi", "aprovar", "emprestimo", 14, 10]],
+  "horarios": {"reserva_tecnica": [18, 8]},
+  "pedidos": {"p4": "bia"},
+  "consultas": [
+    {"pessoa": "davi", "acao": "aprovar", "recurso": "p4", "hora": 12, "esperado": "inconsistente"}
+  ],
+  "esperado": {"consistente": false, "modelos": 0,
+               "violacoes": ["delegacao_intervalo_vazio(bia, davi, aprovar, emprestimo)", "horario_vazio(reserva_tecnica)"]}
+}

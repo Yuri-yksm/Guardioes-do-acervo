@@ -1,0 +1,16 @@
+{
+  "descricao": "Hierarquia mal configurada com ciclo curador <-> conservador. O sistema detecta o ciclo (aviso), a busca termina graças à detecção de laços e as respostas continuam corretas.",
+  "papeis": {"ana": "curador", "beto": "conservador", "caio": "estagiario"},
+  "herda": [["curador", "conservador"], ["conservador", "curador"], ["conservador", "estagiario"]],
+  "permissoes": [["curador", "editar", "acervo_digital"], ["conservador", "restaurar", "obra"],
+                 ["estagiario", "ler", "catalogo"]],
+  "consultas": [
+    {"pessoa": "ana",  "acao": "restaurar", "recurso": "obra",           "hora": 10, "esperado": "permitido"},
+    {"pessoa": "beto", "acao": "editar",    "recurso": "acervo_digital", "hora": 10, "esperado": "permitido"},
+    {"pessoa": "ana",  "acao": "ler",       "recurso": "catalogo",       "hora": 10, "esperado": "permitido"},
+    {"pessoa": "ana",  "acao": "apagar",    "recurso": "catalogo",       "hora": 10, "esperado": "negado"},
+    {"pessoa": "caio", "acao": "editar",    "recurso": "acervo_digital", "hora": 10, "esperado": "negado"}
+  ],
+  "esperado": {"consistente": true, "modelos": 1,
+               "avisos": ["ciclo_heranca(curador)", "ciclo_heranca(conservador)"]}
+}

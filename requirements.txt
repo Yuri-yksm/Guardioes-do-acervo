@@ -1,0 +1,2 @@
+pytest>=7
+pycosat>=0.6  # opcional: só para conferir o DPLL nos testes

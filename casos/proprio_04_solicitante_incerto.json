@@ -1,0 +1,12 @@
+{
+  "descricao": "Resposta não única pela separação de funções: o solicitante de p9 é bia ou davi; ambos são coordenadores.",
+  "papeis": {"bia": "coordenador", "davi": "coordenador", "gil": "coordenador"},
+  "permissoes": [["coordenador", "aprovar", "emprestimo"]],
+  "pedidos": {"p9": {"um_de": ["bia", "davi"]}},
+  "consultas": [
+    {"pessoa": "bia",  "acao": "aprovar", "recurso": "p9", "hora": 10, "esperado": "nao_unica"},
+    {"pessoa": "davi", "acao": "aprovar", "recurso": "p9", "hora": 10, "esperado": "nao_unica"},
+    {"pessoa": "gil",  "acao": "aprovar", "recurso": "p9", "hora": 10, "esperado": "permitido"}
+  ],
+  "esperado": {"consistente": true, "modelos": 2}
+}

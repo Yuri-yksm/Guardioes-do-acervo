@@ -1,0 +1,16 @@
+{
+  "descricao": "Proibição explícita do papel estagiário de editar o catálogo. Como coordenador e técnico herdam estagiário, a proibição também os alcança e vence a permissão (negar prevalece); a verificação SAT aponta o par R3a x R6.",
+  "papeis": {"bia": "coordenador", "davi": "tecnico", "edu": "estagiario", "rui": "revisor"},
+  "herda": [["coordenador", "tecnico"], ["tecnico", "estagiario"]],
+  "permissoes": [["tecnico", "editar", "catalogo"], ["estagiario", "ler", "catalogo"],
+                 ["revisor", "editar", "catalogo"]],
+  "proibicoes": [["estagiario", "editar", "catalogo"]],
+  "consultas": [
+    {"pessoa": "davi", "acao": "editar", "recurso": "catalogo", "hora": 10, "esperado": "negado"},
+    {"pessoa": "bia",  "acao": "editar", "recurso": "catalogo", "hora": 10, "esperado": "negado"},
+    {"pessoa": "rui",  "acao": "editar", "recurso": "catalogo", "hora": 10, "esperado": "permitido"},
+    {"pessoa": "edu",  "acao": "ler",    "recurso": "catalogo", "hora": 10, "esperado": "permitido"}
+  ],
+  "esperado": {"consistente": true, "modelos": 1,
+               "conflitos": [["R3a", "R6"]]}
+}

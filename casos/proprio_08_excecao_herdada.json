@@ -1,0 +1,17 @@
+{
+  "descricao": "Exceção de horário herdada: chefe_seguranca herda seguranca e por isso entra na reserva técnica fora do horário; o coordenador não tem a exceção.",
+  "papeis": {"ivo": "chefe_seguranca", "gil": "seguranca", "bia": "coordenador"},
+  "herda": [["chefe_seguranca", "seguranca"], ["coordenador", "tecnico"]],
+  "permissoes": [["seguranca", "ler", "reserva_tecnica"], ["tecnico", "ler", "reserva_tecnica"],
+                 ["chefe_seguranca", "trancar", "reserva_tecnica"]],
+  "horarios": {"reserva_tecnica": [8, 18]},
+  "excecoes_de_horario": ["seguranca"],
+  "consultas": [
+    {"pessoa": "ivo", "acao": "ler",     "recurso": "reserva_tecnica", "hora": 22, "esperado": "permitido"},
+    {"pessoa": "ivo", "acao": "trancar", "recurso": "reserva_tecnica", "hora": 23, "esperado": "permitido"},
+    {"pessoa": "gil", "acao": "trancar", "recurso": "reserva_tecnica", "hora": 23, "esperado": "negado"},
+    {"pessoa": "bia", "acao": "ler",     "recurso": "reserva_tecnica", "hora": 22, "esperado": "negado"},
+    {"pessoa": "bia", "acao": "ler",     "recurso": "reserva_tecnica", "hora": 9,  "esperado": "permitido"}
+  ],
+  "esperado": {"consistente": true, "modelos": 1}
+}

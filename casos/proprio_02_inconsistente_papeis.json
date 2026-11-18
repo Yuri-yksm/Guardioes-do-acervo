@@ -1,0 +1,13 @@
+{
+  "descricao": "Entrada inconsistente: o diretor herda tesoureiro e auditor, papéis declarados incompatíveis (separação de funções na atribuição de papéis).",
+  "papeis": {"dora": "diretor", "eli": "auditor"},
+  "herda": [["diretor", "tesoureiro"], ["diretor", "auditor"]],
+  "permissoes": [["tesoureiro", "pagar", "fatura"], ["auditor", "ler", "fatura"]],
+  "papeis_incompativeis": [["tesoureiro", "auditor"]],
+  "consultas": [
+    {"pessoa": "dora", "acao": "pagar", "recurso": "fatura", "hora": 10, "esperado": "inconsistente"},
+    {"pessoa": "eli",  "acao": "ler",   "recurso": "fatura", "hora": 10, "esperado": "inconsistente"}
+  ],
+  "esperado": {"consistente": false, "modelos": 0,
+               "violacoes": ["papeis_incompativeis(dora, tesoureiro, auditor)"]}
+}

@@ -1,0 +1,18 @@
+{
+  "descricao": "Pessoa com vários papéis, recurso declarado com tipo próprio e duas ações de controle (aprovar e homologar) sob separação de funções.",
+  "papeis": {"lia": ["tecnico", "comissao"], "mau": "comissao", "nei": "tecnico"},
+  "permissoes": [["tecnico", "editar", "vitrine"], ["comissao", "aprovar", "emprestimo"],
+                 ["comissao", "homologar", "emprestimo"]],
+  "recursos": {"vitrine_3": "vitrine"},
+  "pedidos": {"p5": "lia", "p6": "nei"},
+  "acoes_de_controle": ["aprovar", "homologar"],
+  "consultas": [
+    {"pessoa": "lia", "acao": "editar",    "recurso": "vitrine_3", "hora": 10, "esperado": "permitido"},
+    {"pessoa": "lia", "acao": "homologar", "recurso": "p5",        "hora": 10, "esperado": "negado"},
+    {"pessoa": "lia", "acao": "homologar", "recurso": "p6",        "hora": 10, "esperado": "permitido"},
+    {"pessoa": "mau", "acao": "aprovar",   "recurso": "p5",        "hora": 10, "esperado": "permitido"},
+    {"pessoa": "nei", "acao": "aprovar",   "recurso": "p6",        "hora": 10, "esperado": "negado"},
+    {"pessoa": "mau", "acao": "editar",    "recurso": "vitrine_3", "hora": 10, "esperado": "negado"}
+  ],
+  "esperado": {"consistente": true, "modelos": 1}
+}

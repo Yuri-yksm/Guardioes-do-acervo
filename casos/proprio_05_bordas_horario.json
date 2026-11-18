@@ -1,0 +1,21 @@
+{
+  "descricao": "Limites dos intervalos semiabertos [inicio, fim): reserva técnica [8,18) e delegação [9,12). Hora 25 é inválida.",
+  "papeis": {"bia": "coordenador", "davi": "tecnico", "edu": "estagiario"},
+  "herda": [["coordenador", "tecnico"]],
+  "permissoes": [["tecnico", "ler", "reserva_tecnica"], ["coordenador", "aprovar", "emprestimo"]],
+  "delegacoes": [["bia", "davi", "aprovar", "emprestimo", 9, 12]],
+  "pedidos": {"p2": "edu"},
+  "horarios": {"reserva_tecnica": [8, 18]},
+  "consultas": [
+    {"pessoa": "davi", "acao": "ler",     "recurso": "reserva_tecnica", "hora": 7,  "esperado": "negado"},
+    {"pessoa": "davi", "acao": "ler",     "recurso": "reserva_tecnica", "hora": 8,  "esperado": "permitido"},
+    {"pessoa": "davi", "acao": "ler",     "recurso": "reserva_tecnica", "hora": 17, "esperado": "permitido"},
+    {"pessoa": "davi", "acao": "ler",     "recurso": "reserva_tecnica", "hora": 18, "esperado": "negado"},
+    {"pessoa": "davi", "acao": "aprovar", "recurso": "p2",              "hora": 8,  "esperado": "negado"},
+    {"pessoa": "davi", "acao": "aprovar", "recurso": "p2",              "hora": 9,  "esperado": "permitido"},
+    {"pessoa": "davi", "acao": "aprovar", "recurso": "p2",              "hora": 11, "esperado": "permitido"},
+    {"pessoa": "davi", "acao": "aprovar", "recurso": "p2",              "hora": 12, "esperado": "negado"},
+    {"pessoa": "bia",  "acao": "aprovar", "recurso": "p2",              "hora": 25, "esperado": "negado"}
+  ],
+  "esperado": {"consistente": true, "modelos": 1}
+}

@@ -1,0 +1,12 @@
+{
+  "descricao": "As restrições de integridade eliminam mundos: hugo é supervisor ou estagiário, mas supervisor herda técnico e segurança, que são incompatíveis. Sobra um único mundo e a resposta volta a ser única.",
+  "papeis": {"hugo": {"um_de": ["supervisor", "estagiario"]}},
+  "herda": [["supervisor", "tecnico"], ["supervisor", "seguranca"]],
+  "permissoes": [["tecnico", "editar", "catalogo"], ["estagiario", "ler", "catalogo"]],
+  "papeis_incompativeis": [["tecnico", "seguranca"]],
+  "consultas": [
+    {"pessoa": "hugo", "acao": "editar", "recurso": "catalogo", "hora": 10, "esperado": "negado"},
+    {"pessoa": "hugo", "acao": "ler",    "recurso": "catalogo", "hora": 10, "esperado": "permitido"}
+  ],
+  "esperado": {"consistente": true, "modelos": 1}
+}

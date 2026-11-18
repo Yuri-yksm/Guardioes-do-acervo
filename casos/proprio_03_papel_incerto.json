@@ -1,0 +1,15 @@
+{
+  "descricao": "Resposta não única: não se sabe se hugo é técnico ou estagiário. Ler o catálogo vale nos dois mundos; editar depende do mundo.",
+  "papeis": {"bia": "coordenador", "hugo": {"um_de": ["tecnico", "estagiario"]}},
+  "herda": [["coordenador", "tecnico"], ["tecnico", "estagiario"]],
+  "permissoes": [["estagiario", "ler", "catalogo"], ["tecnico", "editar", "catalogo"],
+                 ["coordenador", "aprovar", "emprestimo"]],
+  "pedidos": {"p1": "hugo"},
+  "consultas": [
+    {"pessoa": "hugo", "acao": "editar",  "recurso": "catalogo", "hora": 10, "esperado": "nao_unica"},
+    {"pessoa": "hugo", "acao": "ler",     "recurso": "catalogo", "hora": 10, "esperado": "permitido"},
+    {"pessoa": "hugo", "acao": "aprovar", "recurso": "p1",       "hora": 10, "esperado": "negado"},
+    {"pessoa": "bia",  "acao": "aprovar", "recurso": "p1",       "hora": 10, "esperado": "permitido"}
+  ],
+  "esperado": {"consistente": true, "modelos": 2}
+}

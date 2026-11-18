@@ -1,0 +1,15 @@
+{
+  "descricao": "Delegação feita por quem não tem a permissão não produz efeito (aviso), e delegação não é transitiva: davi recebeu de bia, mas não pode repassar para edu.",
+  "papeis": {"bia": "coordenador", "davi": "tecnico", "edu": "estagiario"},
+  "permissoes": [["coordenador", "aprovar", "emprestimo"]],
+  "delegacoes": [["bia", "davi", "aprovar", "emprestimo", 8, 18],
+                 ["davi", "edu", "aprovar", "emprestimo", 8, 18]],
+  "pedidos": {"p3": "bia"},
+  "consultas": [
+    {"pessoa": "davi", "acao": "aprovar", "recurso": "p3", "hora": 10, "esperado": "permitido"},
+    {"pessoa": "edu",  "acao": "aprovar", "recurso": "p3", "hora": 10, "esperado": "negado"},
+    {"pessoa": "bia",  "acao": "aprovar", "recurso": "p3", "hora": 10, "esperado": "negado"}
+  ],
+  "esperado": {"consistente": true, "modelos": 1,
+               "avisos": ["delegacao_sem_efeito(davi, edu, aprovar, emprestimo)"]}
+}
